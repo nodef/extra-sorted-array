@@ -1,0 +1,24 @@
+{
+  "name": "extra-sortedarray",
+  "version": "0.0.1",
+  "description": "A sorted array is a collection of values, arranged in an order.",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/extra-sortedarray.git"
+  },
+  "keywords": [
+    "extra",
+    "sorted",
+    "array"
+  ],
+  "author": "wolfram77@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodef/extra-sortedarray/issues"
+  },
+  "homepage": "https://github.com/nodef/extra-sortedarray#readme"
+}
