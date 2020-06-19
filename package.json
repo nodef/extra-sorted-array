@@ -1,6 +1,6 @@
 {
   "name": "extra-sortedarray",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A sorted array is a collection of values, arranged in an order.",
   "main": "index.js",
   "module": "index.mjs",
