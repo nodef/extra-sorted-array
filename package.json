@@ -1,6 +1,6 @@
 {
   "name": "extra-sorted-array",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A sorted array is a collection of values, arranged in an order.",
   "main": "index.js",
   "module": "index.mjs",
@@ -34,7 +34,9 @@
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/jest": "^29.5.1",
+    "extra-array": "^4.1.23",
     "extra-build": "^2.2.42",
+    "extra-function": "^1.1.32",
     "jest": "^29.5.0",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-dts": "^5.3.0",
