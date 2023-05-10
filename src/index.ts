@@ -203,8 +203,9 @@ export function hasValue<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | null=n
  * @param i begin index [0]
  * @returns index of value, or -1
  */
-export function indexOf<T>(x: T[], v: T, i: number): number {
-  return Math.max(searchValue(x.slice(i), v), -1);
+export function indexOf<T>(x: T[], v: T, i: number=0): number {
+  var j = searchValue(x.slice(i), v);
+  return j<0? -1 : j+i;
 }
 
 
@@ -215,8 +216,9 @@ export function indexOf<T>(x: T[], v: T, i: number): number {
  * @param i begin index [|x|-1]
  * @returns last index of value, or -1
  */
-export function lastIndexOf<T>(x: T[], v: T, i: number): number {
-  return Math.max(searchValueRight(x.slice(i), v), -1);
+export function lastIndexOf<T>(x: T[], v: T, i: number=x.length-1): number {
+  var j = searchValueRight(x.slice(0, i+1), v);
+  return j<0? -1 : j;
 }
 
 
