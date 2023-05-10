@@ -87,7 +87,6 @@ xsortedArray.intersection(x, y);
 | [searchClosestValue] | Find index of closest value using binary search. |
 |  |  |
 | [merge] | Merge values from two sorted arrays. |
-| [rangedMerge] | Merge ranges of values from two sorted arrays. |
 | [mergeAll] | Merge values from sorted arrays. |
 |  |  |
 | [isUnique] | Examine if there are no duplicate values. |
@@ -105,14 +104,14 @@ xsortedArray.intersection(x, y);
 
 ## References
 
+- [binarysearch - npm : Ryan Day](https://www.npmjs.com/package/binarysearch)
 - [binary-sorted-array - npm : Michal Iwanow](https://www.npmjs.com/package/binary-sorted-array)
 - [How to add region in java script file, visual studio](https://stackoverflow.com/a/51550649/1413259)
 
 <br>
 <br>
 
-
-[![](https://img.youtube.com/vi/VYOOiIJeBOA/maxresdefault.jpg)](https://www.youtube.com/watch?v=VYOOiIJeBOA)<br>
+[![](https://img.youtube.com/vi/VnFLMIEZNG8/maxresdefault.jpg)](https://www.youtube.com/watch?v=VnFLMIEZNG8)<br>
 [![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
 [![Coverage Status](https://coveralls.io/repos/github/nodef/extra-sorted-array/badge.svg?branch=master)](https://coveralls.io/github/nodef/extra-sorted-array?branch=master)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/31b3e3f490532d3bd3d3/test_coverage)](https://codeclimate.com/github/nodef/extra-sorted-array/test_coverage)
