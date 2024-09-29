@@ -5,8 +5,6 @@ A [sorted array] is a collection of values, arranged in an order.<br>
 📰 [Docs](https://nodef.github.io/extra-sorted-array/),
 📘 [Wiki](https://github.com/nodef/extra-sorted-array/wiki/).
 
-![](https://i.imgur.com/46wYtxW.png)
-
 <br>
 
 
