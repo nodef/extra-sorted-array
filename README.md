@@ -115,6 +115,7 @@ xsortedArray.intersection(x, y);
 [![Test Coverage](https://api.codeclimate.com/v1/badges/31b3e3f490532d3bd3d3/test_coverage)](https://codeclimate.com/github/nodef/extra-sorted-array/test_coverage)
 <!-- [![DOI](https://zenodo.org/badge/133759104.svg)](https://zenodo.org/badge/latestdoi/133759104) -->
 
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/extra-sorted-array)
 
 [includes]: https://github.com/nodef/extra-sorted-array/wiki/includes
 [hasValue]: https://github.com/nodef/extra-sorted-array/wiki/hasValue
