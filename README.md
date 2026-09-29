@@ -1,12 +1,9 @@
 A [sorted array] is a collection of values, arranged in an order.<br>
-📦 [Node.js](https://www.npmjs.com/package/extra-sorted-array),
-🌐 [Web](https://www.npmjs.com/package/extra-sorted-array.web),
-📜 [Files](https://unpkg.com/extra-sorted-array/),
-📰 [Docs](https://nodef.github.io/extra-sorted-array/),
-📘 [Wiki](https://github.com/nodef/extra-sorted-array/wiki/).
 
-<br>
-
+▌
+📦 [JSR](https://jsr.io/@nodef/extra-sorted-array),
+📦 [NPM](https://www.npmjs.com/package/extra-sorted-array),
+📰 [Docs](https://jsr.io/@nodef/extra-sorted-array/doc).
 
 This package includes comprehensive set of functions that operate on a sorted
 array with which you can **search a value** using binary search, **merge**
@@ -22,24 +19,12 @@ Further, functions which return an iterable instead of an array are prefixed
 with `i`, such as `isubsequences()`. We borrow some names from other programming
 languages such as *Haskell*, *Python*, *Java*, and *Processing*.
 
-With this package, you can simplify the implementation of complex algorithms,
-and be able to achieve your goals faster, regardless of your level of expertise.
-Try it out today and discover how it can transform your development experience!
-This package is available in *Node.js* and *Web* formats. To use it on the web,
-simply use the `extra_sorted_array` global variable after loading with a
-`<script>` tag from the [jsDelivr CDN].
-
-> Stability: [Experimental](https://www.youtube.com/watch?v=L1j93RnIxEo).
-
 [sorted array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-[jsDelivr CDN]: https://cdn.jsdelivr.net/npm/extra-sorted-array.web/index.js
 
 <br>
 
 ```javascript
-const xsortedArray = require('extra-sorted-array');
-// import * as xsortedArray from "extra-sorted-array";
-// import * as xsortedArray from "https://unpkg.com/extra-sorted-array/index.mjs"; (deno)
+import * as xsortedArray from "jsr:@nodef/extra-sorted-array";
 
 var x = [10, 20, 20, 40, 40, 80];
 xsortedArray.searchValue(x, 40);
@@ -109,29 +94,26 @@ xsortedArray.intersection(x, y);
 <br>
 <br>
 
-[![](https://img.youtube.com/vi/VnFLMIEZNG8/maxresdefault.jpg)](https://www.youtube.com/watch?v=VnFLMIEZNG8)<br>
+[![](https://raw.githubusercontent.com/qb40/designs/gh-pages/0/image/11.png)](https://wolfram77.github.io)<br>
 [![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
-[![Coverage Status](https://coveralls.io/repos/github/nodef/extra-sorted-array/badge.svg?branch=master)](https://coveralls.io/github/nodef/extra-sorted-array?branch=master)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/31b3e3f490532d3bd3d3/test_coverage)](https://codeclimate.com/github/nodef/extra-sorted-array/test_coverage)
-<!-- [![DOI](https://zenodo.org/badge/133759104.svg)](https://zenodo.org/badge/latestdoi/133759104) -->
-
 ![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/extra-sorted-array)
 
-[includes]: https://github.com/nodef/extra-sorted-array/wiki/includes
-[hasValue]: https://github.com/nodef/extra-sorted-array/wiki/hasValue
-[indexOf]: https://github.com/nodef/extra-sorted-array/wiki/indexOf
-[lastIndexOf]: https://github.com/nodef/extra-sorted-array/wiki/lastIndexOf
-[searchValue]: https://github.com/nodef/extra-sorted-array/wiki/searchValue
-[searchValueRight]: https://github.com/nodef/extra-sorted-array/wiki/searchValueRight
-[searchValueAny]: https://github.com/nodef/extra-sorted-array/wiki/searchValueAny
-[searchClosestValue]: https://github.com/nodef/extra-sorted-array/wiki/searchClosestValue
-[merge]: https://github.com/nodef/extra-sorted-array/wiki/merge
-[rangedMerge]: https://github.com/nodef/extra-sorted-array/wiki/rangedMerge
-[mergeAll]: https://github.com/nodef/extra-sorted-array/wiki/mergeAll
-[isUnique]: https://github.com/nodef/extra-sorted-array/wiki/isUnique
-[isDisjoint]: https://github.com/nodef/extra-sorted-array/wiki/isDisjoint
-[unique]: https://github.com/nodef/extra-sorted-array/wiki/unique
-[union]: https://github.com/nodef/extra-sorted-array/wiki/union
-[intersection]: https://github.com/nodef/extra-sorted-array/wiki/intersection
-[difference]: https://github.com/nodef/extra-sorted-array/wiki/difference
-[symmetricDifference]: https://github.com/nodef/extra-sorted-array/wiki/symmetricDifference
+
+[includes]: https://jsr.io/@nodef/extra-sorted-array/doc/~/includes
+[hasValue]: https://jsr.io/@nodef/extra-sorted-array/doc/~/hasValue
+[indexOf]: https://jsr.io/@nodef/extra-sorted-array/doc/~/indexOf
+[lastIndexOf]: https://jsr.io/@nodef/extra-sorted-array/doc/~/lastIndexOf
+[searchValue]: https://jsr.io/@nodef/extra-sorted-array/doc/~/searchValue
+[searchValueRight]: https://jsr.io/@nodef/extra-sorted-array/doc/~/searchValueRight
+[searchValueAny]: https://jsr.io/@nodef/extra-sorted-array/doc/~/searchValueAny
+[searchClosestValue]: https://jsr.io/@nodef/extra-sorted-array/doc/~/searchClosestValue
+[merge]: https://jsr.io/@nodef/extra-sorted-array/doc/~/merge
+[rangedMerge]: https://jsr.io/@nodef/extra-sorted-array/doc/~/rangedMerge
+[mergeAll]: https://jsr.io/@nodef/extra-sorted-array/doc/~/mergeAll
+[isUnique]: https://jsr.io/@nodef/extra-sorted-array/doc/~/isUnique
+[isDisjoint]: https://jsr.io/@nodef/extra-sorted-array/doc/~/isDisjoint
+[unique]: https://jsr.io/@nodef/extra-sorted-array/doc/~/unique
+[union]: https://jsr.io/@nodef/extra-sorted-array/doc/~/union
+[intersection]: https://jsr.io/@nodef/extra-sorted-array/doc/~/intersection
+[difference]: https://jsr.io/@nodef/extra-sorted-array/doc/~/difference
+[symmetricDifference]: https://jsr.io/@nodef/extra-sorted-array/doc/~/symmetricDifference

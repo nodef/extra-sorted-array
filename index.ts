@@ -1,11 +1,11 @@
 import {
   IDENTITY,
   COMPARE,
-} from "extra-function";
-import {
+} from "@nodef/extra-function";
+import type {
   CompareFunction,
   MapFunction,
-} from "extra-array";
+} from "@nodef/extra-array";
 
 
 
@@ -15,18 +15,18 @@ import {
 
 export {
   // TYPES
-  Entries,
-  IEntries,
-  Lists,
-  ILists,
-  ReadFunction,
-  CombineFunction,
-  CompareFunction,
-  ProcessFunction,
-  TestFunction,
-  MapFunction,
-  ReduceFunction,
-  EndFunction,
+  type Entries,
+  type IEntries,
+  type Lists,
+  type ILists,
+  type ReadFunction,
+  type CombineFunction,
+  type CompareFunction,
+  type ProcessFunction,
+  type TestFunction,
+  type MapFunction,
+  type ReduceFunction,
+  type EndFunction,
   // METHODS
   // GENERATE
   fromRange,
@@ -159,7 +159,7 @@ export {
   // CONCAT/JOIN
   join,
   // Set operations
-} from "extra-array";
+} from "@nodef/extra-array";
 // #endregion
 
 
@@ -204,7 +204,7 @@ export function hasValue<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | null=n
  * @returns index of value, or -1
  */
 export function indexOf<T>(x: T[], v: T, i: number=0): number {
-  var j = searchValue(x.slice(i), v);
+  const j = searchValue(x.slice(i), v);
   return j<0? -1 : j+i;
 }
 
@@ -217,7 +217,7 @@ export function indexOf<T>(x: T[], v: T, i: number=0): number {
  * @returns last index of value, or -1
  */
 export function lastIndexOf<T>(x: T[], v: T, i: number=x.length-1): number {
-  var j = searchValueRight(x.slice(0, i+1), v);
+  const j = searchValueRight(x.slice(0, i+1), v);
   return j<0? -1 : j;
 }
 
@@ -231,13 +231,14 @@ export function lastIndexOf<T>(x: T[], v: T, i: number=x.length-1): number {
  * @returns first index of value, or ~(index of closest value)
  */
 export function searchValue<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): number {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var w = fm(v, 0, null);
-  for (var i=0, I=x.length; i<I;) {
-    var m  = i+I >>> 1;
-    var wx = fm(x[m], m, x);
-    var c  = fc(wx, w);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const w = fm(v, 0, null);
+  let i = 0, I = x.length
+  while (i<I) {
+    const m  = i+I >>> 1;
+    const wx = fm(x[m], m, x);
+    const c  = fc(wx, w);
     if (c<0) i = m+1;
     else     I = m;
   }
@@ -254,13 +255,14 @@ export function searchValue<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | nul
  * @returns last index of value, or ~(index of closest value)
  */
 export function searchValueRight<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): number {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var w  = fm(v, 0, null);
-  for (var i=0, I=x.length; i<I;) {
-    var m  = i+I >>> 1;
-    var wx = fm(x[m], m, x);
-    var c  = fc(wx, w);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const w  = fm(v, 0, null);
+  let i = 0, I = x.length;
+  while (i<I) {
+    const m  = i+I >>> 1;
+    const wx = fm(x[m], m, x);
+    const c  = fc(wx, w);
     if (c<=0) i = m+1;
     else      I = m;
   }
@@ -277,13 +279,14 @@ export function searchValueRight<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> 
  * @returns index of value, or ~(index of closest value)
  */
 export function searchValueAny<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): number {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var w  = fm(v, 0, null);
-  for (var i=0, I=x.length; i<I;) {
-    var m  = i+I >>> 1;
-    var wx = fm(x[m], m, x);
-    var c  = fc(wx, w);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const w  = fm(v, 0, null);
+  let i = 0, I = x.length;
+  while (i<I) {
+    const m  = i+I >>> 1;
+    const wx = fm(x[m], m, x);
+    const c  = fc(wx, w);
     if (c<0)      i = m+1;
     else if (c>0) I = m;
     else return m;
@@ -301,13 +304,14 @@ export function searchValueAny<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | 
  * @returns index of closest value
  */
 export function searchClosestValue<T, U=T>(x: T[], v: T, fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): number {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var w  = fm(v, 0, null);
-  for (var i=0, I=x.length; i<I;) {
-    var m  = i+I >>> 1;
-    var wx = fm(x[m], m ,x);
-    var c  = fc(wx, w);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const w = fm(v, 0, null);
+  let i = 0, I = x.length;
+  while (i<I) {
+    const m  = i+I >>> 1;
+    const wx = fm(x[m], m ,x);
+    const c  = fc(wx, w);
     if (c<0)      i = m+1;
     else if (c>0) I = m;
     else return m;
@@ -367,13 +371,13 @@ export function merge<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | null=nu
  * @returns x[i:I] & y[j:J] | vᵢ ≤ vᵢ₊₁ ∀ i ∈ x[i:I] & y[j:J]
  */
 export function rangedMerge<T, U=T>(x: T[], i: number, I: number, y: T[], j: number, J: number, fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): T[] {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var a  = [];
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const a  = [];
   while (i<I && j<J) {
-    var wx = fm(x[i], i, x);
-    var wy = fm(y[j], j, y);
-    var c  = fc(wx, wy);
+    const wx = fm(x[i], i, x);
+    const wy = fm(y[j], j, y);
+    const c  = fc(wx, wy);
     if (c<=0) a.push(x[i++]);
     else      a.push(y[j++]);
   }
@@ -391,12 +395,14 @@ export function rangedMerge<T, U=T>(x: T[], i: number, I: number, y: T[], j: num
  * @returns x₀ & x₁ & ... | vᵢ ≤ vᵢ₊₁ ∀ i ∈ x₀ & x₁ & ...
  */
 export function mergeAll<T, U=T>(xs: T[][], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): T[] {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
   // Merge in a binary tree fashion.
   while (xs.length>1) {
-    var ys = [];
-    for (var i=0, I=xs.length; i+1<I; i+=2)
+    const ys = [];
+    const I  = xs.length;
+    let   i  = 0;
+    for (; i+1<I; i+=2)
       ys.push(merge(xs[i], xs[i+1], fc, fm));
     if (i<I) ys.push(xs[i]);
     xs = ys;
@@ -420,11 +426,12 @@ export {mergeAll as concat};
  * @returns ∀ vᵢ, vⱼ ∈ x, is vᵢ ≠ vⱼ?
  */
 export function isUnique<T, U=T>(x: T[], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): boolean {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  for (var i=1, I=x.length; i<I; ++i) {
-    var wx = fm(x[i-1], i-1, x);
-    var wy = fm(x[i], i, x);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const I = x.length;
+  for (let i=1; i<I; ++i) {
+    const wx = fm(x[i-1], i-1, x);
+    const wy = fm(x[i], i, x);
     if (fc(wx, wy)===0) return false;
   }
   return true;
@@ -440,12 +447,13 @@ export function isUnique<T, U=T>(x: T[], fc: CompareFunction<T|U> | null=null, f
  * @returns x ∩ y = Φ?
  */
 export function isDisjoint<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): boolean {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  for (var i=0, j=0, I=x.length, J=y.length; i<I && j<J;) {
-    var wx = fm(x[i], i, x);
-    var wy = fm(y[j], j, y);
-    var c  = fc(wx, wy);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const I = x.length, J = y.length;
+  for (let i=0, j=0; i<I && j<J;) {
+    const wx = fm(x[i], i, x);
+    const wy = fm(y[j], j, y);
+    const c  = fc(wx, wy);
     if (c<0)      ++i;
     else if (c>0) ++j;
     else return false;
@@ -462,14 +470,14 @@ export function isDisjoint<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | nu
  * @returns v₀, v₁, ... | vᵢ ∈ x; vᵢ ≠ vⱼ ∀ i, j
  */
 export function unique<T, U=T>(x: T[], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): T[] {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var X  = x.length;
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const X  = x.length;
   if (X<=1) return x.slice();
-  var a  = [x[0]];
-  for (var i=1; i<X; ++i) {
-    var wx = fm(x[i-1], i-1, x);
-    var wy = fm(x[i], i, x);
+  const a  = [x[0]];
+  for (let i=1; i<X; ++i) {
+    const wx = fm(x[i-1], i-1, x);
+    const wy = fm(x[i], i, x);
     if (fc(wx, wy)!==0) a.push(x[i]);
   }
   return a;
@@ -485,13 +493,15 @@ export function unique<T, U=T>(x: T[], fc: CompareFunction<T|U> | null=null, fm:
  * @returns x ∪ y = \{v | v ∈ x or v ∈ y\}
  */
 export function union<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): T[] {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var a = [];
-  for (var i=0, j=0, I=x.length, J=y.length; i<I && j<J;) {
-    var wx = fm(x[i], i, x);
-    var wy = fm(y[j], j, y);
-    var c  = fc(wx, wy);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const a = [];
+  let   i = 0, j = 0;
+  const I = x.length, J = y.length;
+  while (i<I && j<J) {
+    const wx = fm(x[i], i, x);
+    const wy = fm(y[j], j, y);
+    const c  = fc(wx, wy);
     if (c<0)      a.push(x[i++]);
     else if (c>0) a.push(y[j++]);
     else { a.push(x[i++]); ++j; }
@@ -515,13 +525,15 @@ export function union<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | null=nu
  * @returns x ∩ y = \{v | v ∈ x, v ∈ y\}
  */
 export function intersection<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): T[] {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var a = [];
-  for (var i=0, j=0, I=x.length, J=y.length; i<I && j<J;) {
-    var wx = fm(x[i], i, x);
-    var wy = fm(y[j], j, y);
-    var c  = fc(wx, wy);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const a = [];
+  let   i = 0, j = 0;
+  const I = x.length, J = y.length;
+  while (i<I && j<J) {
+    const wx = fm(x[i], i, x);
+    const wy = fm(y[j], j, y);
+    const c  = fc(wx, wy);
     if (c<0)      ++i;
     else if (c>0) ++j;
     else { a.push(x[i++]); ++j; }
@@ -539,13 +551,15 @@ export function intersection<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | 
  * @returns x - y = \{v | v ∈ x, v ∉ y\}
  */
 export function difference<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): T[] {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var a = [];
-  for (var i=0, j=0, I=x.length, J=y.length; i<I && j<J;) {
-    var wx = fm(x[i], i, x);
-    var wy = fm(y[j], j, y);
-    var c  = fc(wx, wy);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const a = [];
+  const I = x.length, J = y.length;
+  let   i = 0, j = 0;
+  while (i<I && j<J) {
+    const wx = fm(x[i], i, x);
+    const wy = fm(y[j], j, y);
+    const c  = fc(wx, wy);
     if (c<0)      a.push(x[i++]);
     else if (c>0) ++j;
     else { ++i; ++j; }
@@ -564,13 +578,15 @@ export function difference<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | nu
  * @returns x-y ∪ y-x
  */
 export function symmetricDifference<T, U=T>(x: T[], y: T[], fc: CompareFunction<T|U> | null=null, fm: MapFunction<T, T|U> | null=null): T[] {
-  var fc = fc || COMPARE;
-  var fm = fm || IDENTITY;
-  var a = [];
-  for (var i=0, j=0, I=x.length, J=y.length; i<I && j<J;) {
-    var wx = fm(x[i], i, x);
-    var wy = fm(y[j], j, y);
-    var c  = fc(wx, wy);
+  fc = fc || COMPARE;
+  fm = fm || IDENTITY;
+  const a = [];
+  const I = x.length, J = y.length;
+  let   i = 0, j = 0;
+  while (i<I && j<J) {
+    const wx = fm(x[i], i, x);
+    const wy = fm(y[j], j, y);
+    const c  = fc(wx, wy);
     if (c<0)      a.push(x[i++]);
     else if (c>0) a.push(y[j++]);
     else { ++i; ++j; }
