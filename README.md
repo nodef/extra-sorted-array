@@ -2,7 +2,7 @@ A [sorted array] is a collection of values, arranged in an order.<br>
 
 ▌
 📦 [JSR](https://jsr.io/@nodef/extra-sorted-array),
-📦 [NPM](https://www.npmjs.com/package/extra-sorted-array),
+📦 [NPM](https://www.npmjs.com/package/@nodef/extra-sorted-array),
 📰 [Docs](https://jsr.io/@nodef/extra-sorted-array/doc).
 
 This package includes comprehensive set of functions that operate on a sorted
